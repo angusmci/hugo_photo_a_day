@@ -1,3 +1,3 @@
-module github.com/angusmci/hugo-theme-nc-photo-a-day
+module github.com/angusmci/hugo_photo_a_day
 
 go 1.17
