@@ -3,7 +3,7 @@
 			{{ partial "components/menu-navigation.html" . }}
 			{{ partial "components/menu-calendar.html" . }}
 			<aside class="copyright">
-				<p>© {{ $.Site.Params.copyright_owner }} {{ $.Site.Params.site_start_year }}-{{ dateFormat "2006" now }}</p>
+				<p>© {{ $.Site.Params.copyright_owner }} {{ $.Site.Params.site_start_year }}</p>
 			</aside>
 		</footer>
 		{{ $jslib := resources.Get "js/ui.js" | resources.Minify | resources.Fingerprint "sha384" }}
