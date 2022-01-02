@@ -4,7 +4,7 @@
 
     .banner__title {
         margin-top: 1em;
-        font-size: $font-size-banner-title;
+        font-size: unquote("clamp(2rem, 5vw + 1rem, 4.5rem)");
         font-family: $font-family-banner-title;
         font-weight: $font-weight-banner-title;
         padding: 0 0.5em;
@@ -19,7 +19,7 @@
     .banner__subtitle {
         margin: 0;
         padding: 0 0.25em;
-        font-size: $font-size-banner-subtitle;
+        font-size: unquote("clamp(0.813rem, 4vw - 1rem, 1.5rem);");
         font-family: $font-family-banner-subtitle;
         font-weight: $font-weight-banner-subtitle;
         text-transform: lowercase;
