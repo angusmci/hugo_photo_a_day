@@ -5,7 +5,7 @@
 {{ $previousurl := "/" }}
 {{ if $previous }}{{ $previousurl = $previous.RelPermalink }}{{ end }}
 
-<figure class="photo photo--{{ .Params.aspectratio }}" data-previous="{{ $previousurl }}" data-next="{{ $nexturl }}">
+<figure id="mainphoto" class="photo photo--{{ .Params.aspectratio }}" data-previous="{{ $previousurl }}" data-next="{{ $nexturl }}">
     <a href="{{ $previousurl }}">
         <img srcset='/photos/{{ dateFormat "2006-01-02" .Date }}-288.jpg 288w,
  /photos/{{ dateFormat "2006-01-02" .Date }}-420.jpg 420w,
