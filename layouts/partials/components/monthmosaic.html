@@ -9,7 +9,6 @@
     {{ $posterdate := (time $posterdatestr) }}
 
     {{ $photo := (index (where (where .Site.Pages "Section" "posts") "Date" $posterdate ) 0 ) }}
-
     {{ $widths := (dict "32" 288 "43" 288 "23" 192 "34" 216 ) }}
     {{ $heights := (dict "32" 192 "43" 216 "23" 288 "34" 288 ) }}
     {{ $width := (index $widths (printf "%d" $photo.Params.aspectratio) ) }}
