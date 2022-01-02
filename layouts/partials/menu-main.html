@@ -1,0 +1,44 @@
+<nav class="nav__main">
+    <ul>
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+        {{ if .HasChildren }}
+        <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
+            <a href="#">
+                {{ .Pre }}
+                <span>{{ .Name }}</span>
+            </a>
+        </li>
+        <ul class="sub-menu">
+            {{ range .Children }}
+            <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                <a href="{{ .URL }}">{{ .Name }}</a>
+            </li>
+            {{ end }}
+        </ul>
+        {{ else }}
+        <li>
+            <a href="{{ .URL }}">
+                {{ .Pre }}
+                <span>{{ .Name }}</span>
+            </a>
+        </li>
+        {{ end }}
+        {{ end }}
+    </ul>
+
+    <!--
+	<ul class="menu__galleries">
+		{{ range .Site.Taxonomies.galleries }}
+			{{ $page := (index .Pages 0) }}
+			<li><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></li>
+		{{ end }}
+	</ul>
+    <ul class="menu__other">
+	{{ range .Site.Data.sidemenu.items }}
+		<li><a href="{{ .link }}">{{ .title }}</a></li>
+	{{ end }}
+    </ul>
+-->
+
+</nav>

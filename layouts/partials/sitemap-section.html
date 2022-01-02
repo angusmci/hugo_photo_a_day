@@ -1,0 +1,7 @@
+<nav>
+    <ul>
+        {{ range . }}
+        <li><a href="{{ .URL }}">{{ .Title }}</a></li>
+        {{ end }}
+    </ul>
+</nav>

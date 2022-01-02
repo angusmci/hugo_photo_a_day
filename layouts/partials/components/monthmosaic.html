@@ -1,0 +1,31 @@
+{{ $allphotos := sort (where .Site.Pages "Section" "posts") "Date" "desc" }}
+{{ $lastphoto := (index $allphotos 0) }}
+{{ $allmonths := sort (where .Site.Pages "Section" "months") "Date" "asc" }}
+<article class="thumbs thumbs--mosaic">
+    {{ range $allmonths }}
+    {{ if (and .IsPage (ge $lastphoto.Date .Date )) }}
+
+    {{ $posterdatestr := ( default .Date .Params.posterdate ) }}
+    {{ $posterdate := (time $posterdatestr) }}
+
+    {{ $photo := (index (where (where .Site.Pages "Section" "posts") "Date" $posterdate ) 0 ) }}
+
+    {{ $widths := (dict "32" 288 "43" 288 "23" 192 "34" 216 ) }}
+    {{ $heights := (dict "32" 192 "43" 216 "23" 288 "34" 288 ) }}
+    {{ $width := (index $widths (printf "%d" $photo.Params.aspectratio) ) }}
+    {{ $height := (index $heights (printf "%d" $photo.Params.aspectratio) ) }}
+    <figure class="thumb thumb--{{ $photo.Params.aspectratio }}">
+        <a href="{{ .RelPermalink }}">
+            <img srcset='/photos/{{ dateFormat "2006-01-02" $photo.Date }}-144.jpg 144w,
+	/photos/{{ dateFormat "2006-01-02" $photo.Date }}-288.jpg 288w,
+	/photos/{{ dateFormat "2006-01-02" $photo.Date }}-576.jpg 576w' sizes="(max-width: 50em) 90vw,
+	960px" src='/photos/{{ dateFormat "2006-01-02" $photo.Date }}-288.jpg' alt="" width="{{ $width }}"
+                height="{{ $height }}" />
+        </a>
+        <figcaption>
+            <p class="thumb__title">{{ dateFormat "January" $photo.Date }}</p>
+        </figcaption>
+    </figure>
+    {{ end }}
+    {{ end }}
+</article>

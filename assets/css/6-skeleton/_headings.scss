@@ -1,0 +1,17 @@
+h1.pagetitle {
+    font-family: $font-stack-headings;
+    font-weight: $font-weight-headings;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 0em;
+}
+
+article>h2 {
+    font-family: $font-stack-headings;
+    font-weight: $font-weight-headings;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-top: 2em;
+}

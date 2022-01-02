@@ -1,0 +1,9 @@
+<nav class="footermenu">
+	<ul>
+		{{ range .Site.Menus.footer }}
+		<li>
+			<a href="{{ .URL }}">{{ .Name }}</a>
+		</li>
+		{{ end }}
+	</ul>
+</nav>

@@ -1,0 +1,7 @@
+<div class="tagset">
+	<ul>
+		{{ range (index .Params "keywords" )}}
+		<li>{{ . }}</li>
+		{{ end }}
+	</ul>
+</div>

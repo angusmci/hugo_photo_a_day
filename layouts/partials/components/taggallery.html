@@ -1,0 +1,7 @@
+<h1 class="pagetitle">Photos tagged ‘{{ .Data.Term }}’</h1>
+
+<article class="thumbs thumbs--photos">
+    {{ range .Data.Pages }}
+    {{ partial "components/thumb.html" . }}
+    {{ end }}
+</article>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html class="no-js" lang="{{ .Site.LanguageCode }}" prefix="og: http://ogp.me/ns#">
+{{ $description := htmlEscape (index .Params "description") }}
+{{ if eq $description "" }}
+    {{ if eq .Type "posts" }}
+        {{ $description = print "A photograph titled ‘" .Params.title "’ by " $.Site.Params.copyright_owner "." }}
+    {{ end }}
+{{ end }}
+{{ $ogimage := $.Site.Params.og_image }}
+{{ if eq .Params.type "photogallery" }}
+    {{ $ogimage = print "/photos/" .Params.id "/" .Params.id "-" .Params.poster "-1920.jpg" }}
+{{ end }}
+{{ if eq .Type "posts" }}
+    {{ $ogimage = print "photos/" (dateFormat "2006-01-02" .Params.date) "-1920.jpg" }}
+{{ end }}
+{{ .Scratch.Set "description" $description }}
+{{ .Scratch.Set "ogimage" $ogimage }}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    {{ partial "headers/google_analytics.html" . }}
+    <title>{{ if isset .Params "title" }}{{ htmlEscape (index .Params "title") }} | {{ htmlEscape ($.Site.Params.site_title) }}{{ else }}{{ htmlEscape ($.Site.Params.site_title) }}{{ end }}</title>
+    <meta name="description" content='{{ $description }}' />
+    {{ if isset .Params "tags" }}<meta name="keywords" content='{{ delimit (index .Params "tags") "," }}' />{{ end }}
+    <meta name="robots" content='{{ if isset .Params "robots" }}{{ index .Params "robots" }}{{ else }}index{{ end }}' />
+    <meta name="theme-color" content='{{ $.Site.Params.theme_color | default "rgb(70, 70, 140)"}}' />
+    {{ partial "headers/icons.html" . }}
+    {{ partial "headers/json_ld_structured_data.html" . }}
+    {{ partial "headers/metadata_facebook.html" . }}
+    {{ partial "headers/metadata_twitter.html" . }}
+    <link rel="manifest" href="{{ .Site.BaseURL }}site.webmanifest" />
+    {{ partial "headers/ms_application.html" . }}
+    <link
+        href='{{ .Site.Params.webfonts_url | default "https://fonts.googleapis.com/css?family=Muli:400,400i,600%7CLora:400" }}'
+        rel="stylesheet" />
+    {{ $style := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "style.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+    {{ $sitestyle := resources.Get "css/site-main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $sitestyle.RelPermalink }}" integrity="{{ $sitestyle.Data.Integrity }}">
+    {{ if isset .Params "validate" }}{{ partial "headers/google_verification.html" . }}
+    {{ partial "headers/bing_verification.html" . }}{{ end }}
+</head>
+
+<body>
+    {{ "<!--[if lt IE 9]>" | safeHTML }}
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
+            href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    {{ "<![endif]-->" | safeHTML }}

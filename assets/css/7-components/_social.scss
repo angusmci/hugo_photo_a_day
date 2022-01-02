@@ -1,0 +1,75 @@
+.social {
+    position: absolute;
+    top: -2em;
+    right: 0.25em;
+    overflow: auto;
+
+    display: none;
+
+    li {
+        float: left;
+        list-style: none;
+        padding-left: 0.25em;
+
+        a {
+            width: 24px;
+            height: 24px;
+            background-size: 24px 24px;
+            background-repeat: no-repeat;
+            display: block;
+            text-decoration: none;
+            opacity: 0.45;
+        }
+
+        a:hover {
+            opacity: 1.0;
+        }
+
+    }
+
+    .social__button--twitter a {
+        background-image: url('/inline/icons/twitter.svg');
+    }
+
+    .social__button--facebook a {
+        background-image: url('/inline/icons/facebook.svg');
+    }
+
+    .social__button--instagram a {
+        background-image: url('/inline/icons/instagram.svg');
+    }
+
+    .social__button--flickr a {
+        background-image: url('/inline/icons/flickr.svg');
+    }
+
+    .social__button--tumblr a {
+        background-image: url('/inline/icons/tumblr.svg');
+    }
+
+    .social__button--mail a {
+        background-image: url('/inline/icons/mail.svg');
+    }
+
+}
+
+@media screen and (min-width: 32em) {
+    .social {
+        display: block;
+    }
+}
+
+
+@media screen and (min-width: 50em) {
+    .social {
+        li {
+            padding-left: 0.375em;
+
+            a {
+                width: 28px;
+                height: 28px;
+                background-size: 28px 28px;
+            }
+        }
+    }
+}

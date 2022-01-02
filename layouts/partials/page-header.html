@@ -1,0 +1,8 @@
+<header>
+	<div id="banner" class="banner">
+		<div class="banner__title"><a href="/" rel="home">{{ $.Site.Params.site_title }}</a></div>
+		<p class="banner__subtitle">{{ $.Site.Params.site_subtitle }}</p>
+	</div>
+	{{ partial "components/social" . }}
+</header>
+<main class="main--{{ .Kind }}">

@@ -1,0 +1,15 @@
+{{ $owner_contact := $.Site.Params.owner_contact | default "/contact/" }}
+
+<ul class="social">
+    {{ if $.Site.Params.owner_twitter }}<li class="social__button social__button--twitter"><a title="Twitter"
+            href="https://twitter.com/{{ $.Site.Params.owner_twitter }}">&nbsp;</a></li>{{ end }}
+    {{ if $.Site.Params.owner_facebook }}<li class="social__button social__button--facebook"><a title="Facebook"
+            href="https://facebook.com/{{ $.Site.Params.owner_facebook }}">&nbsp;</a></li>{{ end }}
+    {{ if $.Site.Params.owner_instagram }}<li class="social__button social__button--instagram"><a title="Instagram"
+            href="https://instagram.com/{{ $.Site.Params.owner_instagram }}">&nbsp;</a></li>{{ end }}
+    {{ if $.Site.Params.owner_flickr }}<li class="social__button social__button--flickr"><a title="Flickr"
+            href="https://flickr.com/photos/{{ $.Site.Params.owner_flickr }}">&nbsp;</a></li>{{ end }}
+    {{ if $.Site.Params.owner_tumblr }}<li class="social__button social__button--tumblr"><a title="Tumblr"
+            href="https://{{ $.Site.Params.owner_tumblr }}.tumblr.com/">&nbsp;</a></li>{{ end }}
+    <li class="social__button social__button--mail"><a title="Mail" href="{{ $owner_contact }}">&nbsp;</a></li>
+</ul>

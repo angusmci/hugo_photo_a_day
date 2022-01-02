@@ -1,0 +1,18 @@
+.photo_license {
+    width: 18em;
+    margin: 0 auto;
+
+    .photo_license__badge {
+        float: left;
+        width: 6.5em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        margin-top: 0.25em;
+    }
+
+    .photo_license__text {
+        line-height: 1.5em;
+        font-size: 0.875em;
+    }
+}

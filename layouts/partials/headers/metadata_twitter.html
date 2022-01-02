@@ -1,0 +1,8 @@
+{{ if $.Site.Params.owner_twitter }}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content='{{ if isset .Params "title" }}{{ htmlEscape (index .Params "title") }} | {{ htmlEscape $.Site.Params.site_title }}{{ else }}{{ htmlEscape $.Site.Params.site_title }}{{ end }}' />
+<meta name="twitter:description" content='{{ .Scratch.Get "description" }}' />
+<meta name="twitter:site" content="@{{ $.Site.Params.owner_twitter }}" />
+<meta name="twitter:url" content="{{ .Permalink }}" />
+<meta name="twitter:image" content='{{ .Site.BaseURL }}{{ .Scratch.Get "ogimage" }}' />
+{{ end }}

@@ -1,0 +1,9 @@
+{{ if .Site.Params.show_tags  }}
+<aside class="tags">
+    <ul class="tags__list">
+        {{ range sort (.GetTerms "tags") }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{ end }}
+    </ul>
+</aside>
+{{ end }}

@@ -1,0 +1,27 @@
+.error {
+    position: relative;
+    text-align: center;
+    padding: 5em 1em;
+
+    .error__text {
+        color: black;
+        font-size: 7vw;
+        padding-top: 12vw;
+        text-transform: lowercase;
+    }
+
+    .error__code {
+        color: black;
+        opacity: 0.1;
+        position: absolute;
+        top: 4vw;
+        left: 0;
+        z-index: 10;
+        font-size: 30vw;
+        margin: 0 auto;
+        padding: 0;
+        line-height: 0.5em;
+        display: block;
+        width: 100%;
+    }
+}

@@ -1,0 +1,11 @@
+{{ partial "header.html" . }}
+{{ partial "page-header.html" . }}
+
+{{ if .Data.Term }}
+{{ partial "components/taggallery.html" . }}
+{{ else }}
+{{ partial "components/tagindex.html" . }}
+{{ end }}
+
+{{ partial "page-footer.html" . }}
+{{ partial "footer.html" . }}

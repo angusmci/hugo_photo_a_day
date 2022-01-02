@@ -1,0 +1,48 @@
+nav.footermenu {
+    margin: 0;
+    padding: 1em 0.5em;
+    text-align: center;
+
+    ul {
+        overflow: auto;
+        padding: 0;
+        width: 19em;
+        margin: 0 auto;
+
+        li {
+            font-size: 1em;
+            float: left;
+            list-style: none;
+            margin: 0 0.25em;
+
+            a {
+                text-decoration: none;
+                text-transform: lowercase;
+                width: 4.75em;
+                box-sizing: border-box;
+                text-align: center;
+                display: inline-block;
+                padding: 0.125em 0.25em;
+                font-size: 0.875em;
+                line-height: 1.75em;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+
+    }
+
+    @supports(display: flex) {
+        ul {
+            display: flex;
+            flex-direction: row;
+
+            li {
+                flex-grow: 1;
+            }
+        }
+
+    }
+}

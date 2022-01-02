@@ -1,0 +1,43 @@
+aside.tags {
+    background-color: $color-tagset-background;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+    background-image: url('data:image/svg+xml;utf8,<svg width="24px" height="24px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"><g transform="translate(2.0, 2.0)" stroke="%23FFFFFF" fill="none" stroke-width="2"><path d="M22.04,36.08 L0.04,15.0 L0.65,0.47 L14.52,-0.15 L35.88,21.72 L22.04,36.08 Z"/><circle cx="10.51" cy="10.51" r="3.74"></circle></g></svg>');
+    background-repeat: no-repeat;
+    background-position: 1em 1.25em;
+    min-height: 2em;
+    margin: 8em auto;
+    width: 18em;
+    box-sizing: border-box;
+
+    ul {
+        overflow: auto;
+        padding: 0.5em 1em 0.5em 2em;
+        margin: 0;
+
+        li {
+            color: $color-tagset-text;
+            float: left;
+            list-style: none;
+            padding-left: 0.25em;
+
+            a {
+                color: $color-tagset-text;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: $color-tagset-text-hover;
+                text-decoration: underline;
+            }
+        }
+
+        li:after {
+            content: ", ";
+        }
+
+        li:last-child:after {
+            content: "";
+        }
+    }
+}

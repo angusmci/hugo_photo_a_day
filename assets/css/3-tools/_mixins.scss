@@ -1,0 +1,30 @@
+@mixin photo-sizes($dimension) {
+    figure.photo--23 img {
+        width: #{($dimension / 3) * 2}px;
+        height: #{$dimension}px;
+    }
+
+    figure.photo--34 img {
+        width: #{($dimension / 4) * 3}px;
+        height: #{$dimension}px;
+    }
+
+    figure.photo--32 img {
+        width: #{$dimension}px;
+        height: #{($dimension / 3) * 2}px;
+    }
+
+    figure.photo--43 img {
+        width: #{$dimension}px;
+        height: #{($dimension / 4) * 3}px;
+    }
+}
+
+@mixin section-widths($width) {
+
+    body>header,
+    body>main,
+    body>footer {
+        width: #{$width}em;
+    }
+}

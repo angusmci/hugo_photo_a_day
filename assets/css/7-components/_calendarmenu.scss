@@ -1,0 +1,48 @@
+nav.calendarmenu {
+    ul {
+        overflow: auto;
+        padding: 0;
+        width: 14em;
+        margin: 1em auto;
+
+        li {
+            font-size: 1em;
+            float: left;
+            text-align: center;
+            text-transform: lowercase;
+            width: 3em;
+            list-style: none;
+        }
+    }
+
+    ul {
+        li {
+            border-radius: 0.25em;
+            background-color: $calendar-inactive-background-color;
+            color: #333;
+            margin: 0.25em;
+            height: 1.5em;
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: none;
+            }
+        }
+
+        li.monthlink--active {
+            background-color: $calendar-active-background-color;
+        }
+
+        li.monthlink--active:hover {
+            background-color: lighten($calendar-active-background-color, 10);
+        }
+
+        li.monthlink--active.active {
+            background-color: darken($calendar-active-background-color, 10);
+        }
+    }
+}

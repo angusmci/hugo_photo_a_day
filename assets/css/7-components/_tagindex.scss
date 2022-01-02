@@ -1,0 +1,50 @@
+ul.tagindex {
+    overflow: auto;
+    padding: 1em;
+
+    li {
+        list-style: none;
+        float: left;
+        height: 2em;
+        margin: 0.5em 1em;
+
+        a {
+            border-radius: 0.25em 0 0 0.25em;
+            background-color: #666;
+            color: white;
+            padding: 0.25em 1em;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        span {
+            border-radius: 0 0.25em 0.25em 0;
+            background-color: black;
+            color: white;
+            padding: 0.25em 0.5em;
+            margin-left: -0.25em;
+            border-width: 0 0 0 1px;
+            border-style: solid;
+            border-color: white;
+        }
+    }
+}
+
+/*
+// This option is commented out because the grid layout actually looks less good
+// than the 'masonry' style layout created by float. The problem is that the minimum
+// size needs to be set to a high value to handle over-wide keywords, which results in
+// a lot of wasted space. 
+
+@supports(display: grid) {
+    ul.tagindex {
+        display: grid;
+        grid-gap: 0.5em;
+        grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+
+        li {
+            text-align: center;
+        }
+    }
+}
+*/

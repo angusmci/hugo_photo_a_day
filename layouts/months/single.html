@@ -1,0 +1,18 @@
+{{ partial "header.html" . }}
+{{ partial "page-header.html" . }}
+
+{{ $archYear := .Date.Format "2006" }}
+{{ $archMonth := .Date.Format "January" }}
+
+<h1 class="pagetitle">{{ $archMonth }} {{ $archYear }}</h1>
+
+<article class="thumbs thumbs--photos">
+    {{ range sort (where .Site.Pages "Section" "posts") "Date" "asc" }}
+    {{ if and (and .IsPage (eq (.Date.Format "2006") $archYear) (eq (.Date.Format "January") $archMonth) ) }}
+    {{ partial "components/thumb.html" . }}
+    {{ end }}
+    {{ end }}
+</article>
+
+{{ partial "page-footer.html" . }}
+{{ partial "footer.html" . }}

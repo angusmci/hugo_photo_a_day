@@ -1,0 +1,41 @@
+{{ if isset .Site.Params "show_license" }}
+{{ $license_url := .Site.Params.license_url | default "https://creativecommons.org/licenses/by-nc/4.0/" }}
+{{ $license_type := .Site.Params.license_type | default "Creative Commons Attribution-NonCommercial 4.0 International" }}
+{{ $extended_license_url := .Site.Params.acquire_license_url | default "" }}
+{{ $download_prefix := .Site.Params.download_prefix | default "photo" }}
+{{ $timestamp := dateFormat "2006-01-02" .Date }}
+{{ $copyright_owner := .Site.Params.copyright_owner | default .Site.Title }}
+{{ $copyright_owner_homepage := .Site.Params.copyright_owner_homepage | default "/" }}
+<aside class="photo_license" xmlns:cc="http://creativecommons.org/ns" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <div class="photo_license__badge">
+        <a rel="license" href="{{ $license_url }}">
+            <picture>
+                <source type="image/svg+xml" srcset="/inline/badgeLicense.svg" />
+                <img src="/inline/badgeLicense@1x.png" srcset="/inline/badgeLicense@1x.png 88w,
+					 		 /inline/badgeLicense@2x.png 176w" width="88" height="31" alt="{{ $license_type }}" />
+            </picture>
+        </a>
+        {{ if (ne $extended_license_url "" ) }}
+        <a rel="cc:morePermissions" href="{{ $extended_license_url }}">
+            <picture>
+                <source type="image/svg+xml" srcset="/inline/badgeLicensePlus.svg" />
+                <img src="/inline/badgeLicensePlus@1x.png" srcset="/inline/badgeLicenselus@1x.png 88w,
+					 		 /inline/badgeLicensePlus@2x.png 176w" width="88" height="31" alt="Extended License" />
+            </picture>
+        </a>
+        {{ end }}
+    </div>
+    <div class="photo_license__text">
+        <p>“<span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/StillImage"
+                property="dc:title" rel="dc:type">{{ .Title }}</span>” by <a rel="me cc:attributionURL"
+                property="cc:attributionName" href="{{ $copyright_owner_homepage }}">{{  $copyright_owner }}</a> is
+            licensed under a <a rel="license"
+                href="{{ $license_url }}">{{ $license_type }}</a>.{{ if (ne $extended_license_url "" ) }} For
+            permissions beyond the scope of this license, including licensing for commercial use and licensing of
+            high-resolution versions of these images, see the <a rel="cc:morePermissions"
+                href="{{ $extended_license_url }}">licensing</a> page.{{ end }} Click here to <a
+                href="/photos/{{ $timestamp }}-1920.jpg" download="{{ $download_prefix }}-{{ $timestamp }}.jpg">download
+                image</a>.</p>
+    </div>
+</aside>
+{{ end }}

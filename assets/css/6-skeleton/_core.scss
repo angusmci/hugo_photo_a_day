@@ -1,0 +1,38 @@
+@include section-widths($width-narrow);
+
+@media only screen and (min-width: 30em) {
+    @include section-widths($width-small);
+}
+
+@media only screen and (min-width: 40em) {
+    @include section-widths($width-medium);
+}
+
+@media only screen and (min-width: 50em) {
+    @include section-widths($width-wide);
+}
+
+@media only screen and (min-width: 72em) {
+    @include section-widths($width-widest);
+}
+
+body>header {
+    margin: 0 auto 3em auto;
+    padding: 0 0 1em 0;
+    position: relative;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: gray;
+
+}
+
+body>main {
+    margin: 0 auto;
+}
+
+body>footer {
+    margin: 3em auto 1em auto;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: gray;
+}

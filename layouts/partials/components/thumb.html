@@ -1,0 +1,16 @@
+{{ $widths := (dict "32" 144 "43" 144 "23" 96 "34" 108 ) }}
+{{ $heights := (dict "32" 96 "43" 108 "23" 144 "34" 144 ) }}
+{{ $width := (index $widths (printf "%d" .Params.aspectratio) ) }}
+{{ $height := (index $heights (printf "%d" .Params.aspectratio) ) }}
+<figure class="thumb thumb--{{ .Params.aspectratio }}">
+    <a href="{{ .RelPermalink }}">
+        <img srcset='/photos/{{ dateFormat "2006-01-02" .Date }}-144.jpg 144w,
+/photos/{{ dateFormat "2006-01-02" .Date }}-288.jpg 288w,
+/photos/{{ dateFormat "2006-01-02" .Date }}-576.jpg 576w' sizes="(max-width: 50em) 90vw,
+960px" src='/photos/{{ dateFormat "2006-01-02" .Date }}-288.jpg' alt="" width="{{ $width }}" height="{{ $height }}" />
+    </a>
+    <figcaption>
+        <p class="thumb__title">{{ .Title }}</p>
+        <p class="thumb__date">{{ dateFormat "2 January" .Date }}</p>
+    </figcaption>
+</figure>

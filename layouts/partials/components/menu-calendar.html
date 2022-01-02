@@ -1,0 +1,9 @@
+<nav class="calendarmenu">
+    <ul>
+        {{ range (sort .Site.Menus.calendar "Page.Date" "asc") }}
+        <li class="monthlink--active">
+            <a href="{{ .URL }}">{{ substr (dateFormat "January" .Page.Date) 0 3 }}</a>
+        </li>
+        {{ end }}
+    </ul>
+</nav>

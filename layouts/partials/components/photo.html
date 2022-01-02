@@ -1,0 +1,28 @@
+{{ $next := .NextInSection }}
+{{ $previous := .PrevInSection }}
+{{ $nexturl := "/" }}
+{{ if $next }}{{ $nexturl = $next.RelPermalink }}{{ end }}
+{{ $previousurl := "/" }}
+{{ if $previous }}{{ $previousurl = $previous.RelPermalink }}{{ end }}
+
+<figure class="photo photo--{{ .Params.aspectratio }}" data-previous="{{ $previousurl }}" data-next="{{ $nexturl }}">
+    <a href="{{ $previousurl }}">
+        <img srcset='/photos/{{ dateFormat "2006-01-02" .Date }}-288.jpg 288w,
+ /photos/{{ dateFormat "2006-01-02" .Date }}-420.jpg 420w,
+ /photos/{{ dateFormat "2006-01-02" .Date }}-576.jpg 576w,
+ /photos/{{ dateFormat "2006-01-02" .Date }}-720.jpg 720w,
+ /photos/{{ dateFormat "2006-01-02" .Date }}-960.jpg 960w,
+ /photos/{{ dateFormat "2006-01-02" .Date }}-1920.jpg 1920w' sizes="(max-width: 50em) 90vw,
+960px" src='/photos/{{ dateFormat "2006-01-02" .Date }}-720.jpg' alt="" />
+    </a>
+    <nav id="overlay" class="overlay"></nav>
+
+    <figcaption>
+        <h1>{{ .Title }}</h1>
+        <p class="caption">{{ .Params.caption }}</p>
+        <p class="location">{{ .Params.location }}</p>
+    </figcaption>
+</figure>
+
+{{ partial "components/tagblock.html" . }}
+{{ partial "components/licenseblock.html" . }}

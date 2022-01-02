@@ -1,0 +1,21 @@
+{{ if (eq .Type "posts" ) }}
+{{ $contentUrl := printf "%sphotos/%s-1920.jpg" .Site.BaseURL (dateFormat "2006-01-02" .Date) }}
+{{ $jsondatadict := dict 
+    "@context" "https://schema.org" 
+    "@type" "ImageObject" 
+    "@id" ( printf "%s#image-%s" .Site.BaseURL (dateFormat "2006-01-02" .Date) )
+    "url" $contentUrl 
+    "contentUrl" $contentUrl 
+    "license" .Site.Params.license_url 
+    "acquireLicensePage" .Site.Params.acquire_license_url 
+    "creator" .Site.Params.copyright_owner 
+    "dateCreated" (dateFormat "2006-01-02" .Date) 
+    "copyrightYear" (dateFormat "2006" .Date) 
+    "headline" (htmlEscape (index .Params "title"))  
+    "caption" (htmlEscape (index .Params "caption")) 
+    "inLanguage" .Site.LanguageCode 
+}}
+<script type="application/ld+json">
+    [{{ $jsondatadict | jsonify (dict "indent" "    " ) | safeJS }}]
+</script>
+{{ end }}

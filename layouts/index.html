@@ -1,0 +1,19 @@
+{{ partial "header.html" . }}
+{{ partial "page-header.html" . }}
+
+{{ $homepagestyle := .Site.Params.homepage_style | default "photo" }}
+
+{{ if (eq $homepagestyle "photo") }}
+{{ $allphotos := sort (where .Site.Pages "Section" "posts") "Date" "desc" }}
+{{ $lastphoto := (index $allphotos 0) }}
+{{ partial "components/photo.html" $lastphoto }}
+{{ end }}
+{{ if (eq $homepagestyle "months") }}
+{{ partial "components/monthindex.html" . }}
+{{ end }}
+{{ if (eq $homepagestyle "mosaic") }}
+{{ partial "components/monthmosaic.html" . }}
+{{ end }}
+
+{{ partial "page-footer.html" . }}
+{{ partial "footer.html" . }}

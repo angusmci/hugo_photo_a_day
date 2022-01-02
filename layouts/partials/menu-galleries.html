@@ -1,0 +1,30 @@
+<nav id="menu-galleries" class="menu--principal menu--galleries">
+    <h2>Galleries</h2>
+    <ul>
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.galleries }}
+        {{ if .HasChildren }}
+        <li class="{{ if $currentPage.HasMenuCurrent "galleries" . }}active{{ end }}">
+            <a href="#">
+                {{ .Pre }}
+                <span>{{ .Name }}</span>
+            </a>
+        </li>
+        <ul class="sub-menu">
+            {{ range .Children }}
+            <li class="{{ if $currentPage.IsMenuCurrent "galleries" . }}active{{ end }}">
+                <a href="{{ .URL }}">{{ .Name }}</a>
+            </li>
+            {{ end }}
+        </ul>
+        {{ else }}
+        <li>
+            <a href="{{ .URL }}">
+                {{ .Pre }}
+                <span>{{ .Name }}</span>
+            </a>
+        </li>
+        {{ end }}
+        {{ end }}
+    </ul>
+</nav>

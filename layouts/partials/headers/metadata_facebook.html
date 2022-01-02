@@ -1,0 +1,9 @@
+<meta property="fb:app_id" content="{{ $.Site.Params.facebook_app_id }}" />
+<meta property="og:title" content='{{ if isset .Params "title" }}{{ htmlEscape (index .Params "title") }} | {{ htmlEscape $.Site.Params.site_title }}{{ else }}{{ htmlEscape $.Site.Params.site_title }}{{ end }}' />
+<meta property="og:description" content='{{ .Scratch.Get "description" }}' />
+<meta property="og:image" content='{{ .Site.BaseURL }}{{ .Scratch.Get "ogimage" }}' />
+<meta property="og:image:secure_url" content='{{ .Site.BaseURL }}{{ .Scratch.Get "ogimage" }}' />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:site_name" content="{{ htmlEscape $.Site.Params.site_title }}" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="{{ .Site.LanguageCode }}">
